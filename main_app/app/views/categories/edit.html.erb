@@ -1,0 +1,12 @@
+<h2>Edit Category</h2>
+ 
+<%#url = HTTParty.get("http://localhost:3000/categories/#{params["id"]}")%>
+<%#= form_tag("/categories/#{@category["id"]}", method: :post) do  %>
+
+<%#= form_tag("categories/#{params["id"]}") do  %>
+<%= form_tag(("/categories/#{params["id"]}"), method: :patch) do %>
+
+<label>Name : </label></br>
+<%= text_field_tag :name, @category["name"]%></br>
+<%= submit_tag "submit" %></br>
+<% end %>

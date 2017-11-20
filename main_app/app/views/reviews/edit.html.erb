@@ -1,0 +1,17 @@
+<h2>Edit Review </h2>
+<%= form_tag(("/reviews/#{params["id"]}"), method: :patch) do %>
+<label>Body : </label></br>
+<%= text_field_tag :body, @review["body"] %></br>
+<label>Rating : </label></br>
+<%= radio_button_tag :rating , 5,@review["rating"] %> 5  
+<%= radio_button_tag :rating , 4,@review["rating"] %> 4  
+<%= radio_button_tag :rating , 3,@review["rating"] %> 3  
+<%= radio_button_tag :rating , 2,@review["rating"]%> 2  
+<%= radio_button_tag :rating , 1,@review["rating"]%> 1 <br> 
+
+<label>Product : </label></br>
+<%= select_tag "product_id", options_for_select(@result.collect {|result| [result["name"], result["id"]]})%> </br>
+
+
+<%= submit_tag "submit" %></br>
+<% end %>

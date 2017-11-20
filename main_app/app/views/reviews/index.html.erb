@@ -1,0 +1,10 @@
+<h2>Listing Reviews </h2>
+
+<% @reviews.each do |review| %></br>
+BODY - <%= review["body"] %></br>
+RATING - <%= review["rating"] %></br>
+<%= link_to 'Edit', edit_review_path(review["id"]) %></br>
+<%= link_to 'show',review_path(review["id"]) %></br>
+<%end %>
+
+<%= link_to 'ADD', new_review_path %>

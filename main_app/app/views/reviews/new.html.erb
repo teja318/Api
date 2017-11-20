@@ -1,0 +1,19 @@
+<h2>Add Review </h2>
+<%= form_tag(reviews_path, method: :post) do %>
+<label>Body : </label></br>
+<%= text_field_tag :body %></br>
+<label>Rating : </label></br>
+<%= radio_button_tag :rating , 5 %> 5  
+<%= radio_button_tag :rating , 4 %> 4  
+<%= radio_button_tag :rating , 3 %> 3  
+<%= radio_button_tag :rating , 2 %> 2  
+<%= radio_button_tag :rating , 1 %> 1 <br> 
+<%#= text_field_tag :rating %></br>
+<label>Product : </label></br>
+
+
+<%= select_tag "product_id", options_for_select(@result.collect {|result| [result["name"], result["id"]]}) %> </br>
+<%#= option_groups_from_collection_for_select :product_id, [], :id, :name, prompt: "Select Product" %>
+
+<%= submit_tag "submit" %></br>
+<% end %>

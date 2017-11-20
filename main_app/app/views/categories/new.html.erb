@@ -1,0 +1,8 @@
+<h2>Add Category </h2>
+<%= form_tag(categories_path, method: :post) do %>
+<label>Name : </label></br>
+<%= text_field_tag :name %></br>
+<%= submit_tag "submit" %></br>
+<% end %>
+
+<%#= link_to 'categories', categories_path %>

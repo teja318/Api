@@ -1,0 +1,19 @@
+
+
+<h2>Listing product </h2>
+NAME - <%= @product["name"] %></br>
+PRICE - <%= @product["price"] %></br>
+CATEGORY - <%= @category["name"] %></br>
+	
+	
+
+
+	<h2>Listing Reviews </h2>
+
+<% @reviews.each do |review| %></br>
+BODY - <%= link_to review["body"], review_path(review["id"]) %></br>
+<%#= link_to 'show', reviews_path %></br>
+<%end %>
+
+<%= link_to "Back", products_path %>
+

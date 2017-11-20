@@ -1,0 +1,14 @@
+
+
+<h2><%= @category["name"] %></h2>
+
+
+
+<h1>Listing products</h1>
+<% @products.each do |pro| %></br>
+ <%= link_to pro["name"], product_path(pro["id"])%></br>
+	
+<% end %>	
+
+
+<%= link_to "Back", categories_path %>

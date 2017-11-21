@@ -25,10 +25,11 @@ class ReviewsController < ApplicationController
   end
 
   def update
-     @review = HTTParty.patch("http://localhost:3003/api/v1/reviews/#{params["id"]}", Body: {body: params[:body], rating: params[:rating], product_id: params[:product_id]})
+     @review = HTTParty.patch("http://localhost:3003/api/v1/reviews/#{params["id"]}", body: {body: params[:body], rating: params[:rating], product_id: params[:product_id]})
    
      redirect_to reviews_path
   end
+
   def show
   	@review = HTTParty.get("http://localhost:3003/api/v1/reviews/#{params[:id]}")
     @product = HTTParty.get("http://localhost:3002/api/v1/products/#{@review["product_id"]}")

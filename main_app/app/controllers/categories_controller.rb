@@ -34,4 +34,10 @@ class CategoriesController < ApplicationController
      @category = HTTParty.patch("http://localhost:3001/api/v1/categories/#{params["id"]}", body: {name: params[:name]})
      redirect_to categories_path
     end
+
+    def destroy
+    @category = HTTParty.delete("http://localhost:3001/api/v1/categories/#{params["id"]}")
+    
+     redirect_to categories_path
+    end
 end

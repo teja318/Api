@@ -2,7 +2,7 @@
 
 <h2><%= @category["name"] %></h2>
 
-
+<%= link_to "Destroy", category_path(@category["id"]),method: :delete, data: {confirm: "Are you sure?"} %>
 
 <h1>Listing products</h1>
 <% @products.each do |pro| %></br>

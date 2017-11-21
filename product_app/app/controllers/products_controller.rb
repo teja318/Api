@@ -20,10 +20,4 @@ class ProductsController < ApplicationController
 	end
 	end	
 
-	def update
-	@product = Product.find(params[:id])
-	if @product.update_attributes(params[:product].permit(:name,:price, :category_id))
-	render json: @product
-	end
-	end
 end

@@ -24,13 +24,21 @@ class Api::V1::ReviewsController < Api::V1::ApiController
 	
 	end
 	end
+	# def update
+	# @review = Review.find(params[:id])
+	# if @review.update_attributes(params[:review].permit(:body,:rating, :product_id))
+	# render json: @review
+	# end
+	# end
+
+
 
 	def show 
 	@review = Review.find(params[:id])
 	render json: @review
 	end
 
-  def fetch_by_product
+    def fetch_by_product
     	@reviews = Review.where('product_id=?',params[:product_id])
         render json: @reviews
     end		

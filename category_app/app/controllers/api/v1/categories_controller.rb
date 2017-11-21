@@ -21,6 +21,12 @@ class Api::V1::CategoriesController < ApplicationController
 	end
 	end
     
+    def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    redirect_to categories_path, notice: "successfully destroyed the category"
+    end
+
     def show
 	 @category = Category.find(params[:id])
      render json: @category

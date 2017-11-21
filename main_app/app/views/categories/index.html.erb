@@ -3,7 +3,9 @@
 <% @categories.each do |category| %></br>
 
 <%= link_to category["name"], category_path(category["id"])%>
-<%= link_to 'Edit', edit_category_path(category["id"]) %></br>
+<%= link_to 'Edit', edit_category_path(category["id"]) %>
+ 
+
 <% end %><br>
 
 <%= link_to 'ADD', new_category_path %>

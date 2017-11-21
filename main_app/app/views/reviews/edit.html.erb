@@ -1,5 +1,6 @@
 <h2>Edit Review </h2>
 <%= form_tag(("/reviews/#{params["id"]}"), method: :patch) do %>
+
 <label>Body : </label></br>
 <%= text_field_tag :body, @review["body"] %></br>
 <label>Rating : </label></br>

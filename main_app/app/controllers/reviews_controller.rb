@@ -14,7 +14,9 @@ class ReviewsController < ApplicationController
   end
 
   def create
-   @review = HTTParty.post("http://localhost:3003/api/v1/api", body: {review: {Body: params[:body],Rating: params[:rating],Product: params[:product_id]}})
+   @review = HTTParty.post("http://localhost:3003/api/v1/api", cat: {review: {Body: params[:body],Rating: params[:rating],Product: params[:product_id]}})
+    
+    #binding.pry
    redirect_to reviews_path
   end
 
@@ -36,5 +38,8 @@ class ReviewsController < ApplicationController
     
   end
 
-  
+  def destroy 
+   @review = HTTParty.delete("http://localhost:3003/api/v1/reviews/#{params["id"]}")
+    redirect_to reviews_path
+  end
 end

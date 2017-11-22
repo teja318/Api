@@ -3,5 +3,5 @@
 BODY - <%= @review["body"] %></br>
 RATING - <%= @review["rating"] %></br>
 PRODUCT - <%= @product["name"] %></br>
-
+<%= link_to "Destroy", review_path(@review["id"]),method: :delete, data: {confirm: "Are you sure?"} %>
 <%= link_to 'Back', reviews_path %>

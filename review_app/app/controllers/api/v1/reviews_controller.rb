@@ -18,20 +18,17 @@ class Api::V1::ReviewsController < Api::V1::ApiController
 
     def update
 	@review = Review.find(params[:id])
-	#binding.pry
 	if @review.update_attributes(:body => params[:body], :rating => params[:rating], :product_id => params[:product_id])
-		render json: @review
+	render json: @review
 	
 	end
 	end
-	# def update
-	# @review = Review.find(params[:id])
-	# if @review.update_attributes(params[:review].permit(:body,:rating, :product_id))
-	# render json: @review
-	# end
-	# end
-
-
+	
+    def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to reviews_path, notice: "successfully destroyed the review"
+    end	
 
 	def show 
 	@review = Review.find(params[:id])

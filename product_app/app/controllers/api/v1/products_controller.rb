@@ -21,6 +21,12 @@ class Api::V1::ProductsController < ApplicationController
 	
 	end
 	end
+
+	 def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to products_path, notice: "successfully destroyed the product"
+    end
     
     def show
 	

@@ -16,7 +16,7 @@ class Api::V1::CategoriesController < ApplicationController
 	@category = Category.find(params[:id])
 	#binding.pry
 	if @category.update_attributes(:name => params[:name])
-		render json: @category
+	render json: @category
 	
 	end
 	end

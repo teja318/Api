@@ -13,8 +13,7 @@ class ProductsController < ApplicationController
     end
 
 	def create
-      #@response = (@result.collect {|p| [p["name"],p["id"]] })
-      #binding.pry
+     
       @product = HTTParty.post("http://localhost:3002/products", body: {product: {name: params[:name],price: params[:price],category_id: params[:category_id]}})
    	  #binding.pry
    	  redirect_to products_path
@@ -39,6 +38,9 @@ class ProductsController < ApplicationController
      redirect_to products_path
   end
 
-
+  def destroy
+   @product = HTTParty.delete("http://localhost:3002/api/v1/products/#{params["id"]}") 
+   redirect_to products_path
+  end 
 		
 end

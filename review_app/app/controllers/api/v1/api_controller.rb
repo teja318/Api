@@ -10,13 +10,16 @@ class Api::V1::ApiController < ApplicationController
   def create
 
 	@review = Review.new(params[:review].permit(:body, :rating, :product_id))
-
+  binding.pry
 	if @review.save
+    binding.pry
 		render json: @review
 	else
 	  render json: @review.errors
 	end
   end
+
+
 
   
 end
